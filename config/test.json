@@ -1,0 +1,15 @@
+{
+  "App": {
+    "resources": {
+      "StormGlass": {
+        "apiToken": "test-token"
+      }
+    },
+    "database": {
+      "mongoUrl": "mongodb://localhost:27017/atm-test"
+    },
+    "logger": {
+      "enabled": false
+    }
+  }
+}

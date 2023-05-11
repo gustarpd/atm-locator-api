@@ -1,0 +1,10 @@
+{
+  "altitude": 150.3,
+  "cep": "65908051",
+  "latitude": "-5.5067708",
+  "longitude": "-47.467623",
+  "logradouro": "Rua Y",
+  "bairro": "Vila Ipiranga",
+  "cidade": { "ddd": 99, "ibge": "2105302", "nome": "Imperatriz" },
+  "estado": { "sigla": "MA" }
+}

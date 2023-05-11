@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "target": "es2019",
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "lib": ["es2019"],
+    "sourceMap": true,
+    "outDir": "dist",
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "resolveJsonModule": true,
+    "alwaysStrict": true,
+    "removeComments": true,
+    "noImplicitReturns": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["./src/*"],
+      "@test/*": ["src/test/*"]
+    },
+    "rootDirs": [
+      "./src",
+      "src/test"
+    ],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "include": [
+    "./src/**/*.ts",
+    "src/test/**/*.ts"
+<<<<<<< HEAD
+, "src/util/mastercardOAuth.js"  ],
+=======
+  ],
+>>>>>>> parent of 278c914 (oauth 1.o to request ATMs on mastercard API and tests implemented)
+  "exclude": [
+    "./node_modules/*",
+    "dist"
+  ]
+}

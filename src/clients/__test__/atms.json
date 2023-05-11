@@ -1,0 +1,189 @@
+[
+    {
+      "AccessFees": "UNKNOWN",
+      "Availability": "UNKNOWN",
+      "Camera": "NO",
+      "HandicapAccessible": "NO",
+      "Location": {
+        "Address": {
+          "City": "Wausau",
+          "Country": { "Code": "USA", "GeoCoding": true, "Name": "USA" },
+          "CountrySubdivision": { "Code": "NY", "Name": "NY" },
+          "Line1": "3234 Abner Road",
+          "Line2": null,
+          "PostalCode": "11101"
+        },
+        "Distance": 0.93,
+        "DistanceUnit": "MILE",
+        "GeocodingResult": null,
+        "LocationType": { "Type": "OTHER" },
+        "Name": "Sandbox ATM Location 1",
+        "Point": {
+          "Latitude": 38.76006576913497,
+          "Longitude": -90.74615107952418
+        }
+      },
+      "Owner": "Sandbox ATM 1",
+      "SharedDeposit": "NO",
+      "Sponsor": "Sandbox",
+      "SupportEMV": 1,
+      "SurchargeFreeAlliance": "NO",
+      "SurchargeFreeAllianceNetwork": "DOES_NOT_PARTICIPATE_IN_SFA"
+    },
+    {
+      "AccessFees": "UNKNOWN",
+      "Availability": "UNKNOWN",
+      "Camera": "YES",
+      "HandicapAccessible": "YES",
+      "Location": {
+        "Address": {
+          "City": "CARTERVILLE",
+          "Country": { "Code": "USA", "GeoCoding": true, "Name": "USA" },
+          "CountrySubdivision": { "Code": "NY", "Name": "NY" },
+          "Line1": "3009 Butternut Lane",
+          "Line2": null,
+          "PostalCode": "11101"
+        },
+        "Distance": 1.86,
+        "DistanceUnit": "MILE",
+        "GeocodingResult": null,
+        "LocationType": { "Type": "OTHER" },
+        "Name": "Sandbox ATM Location 2",
+        "Point": {
+          "Latitude": 38.76006576913497,
+          "Longitude": -90.74615107952418
+        }
+      },
+      "Owner": "Sandbox ATM 2",
+      "SharedDeposit": "NO",
+      "Sponsor": "Sandbox",
+      "SupportEMV": 1,
+      "SurchargeFreeAlliance": "NO",
+      "SurchargeFreeAllianceNetwork": "DOES_NOT_PARTICIPATE_IN_SFA"
+    },
+    {
+      "AccessFees": "UNKNOWN",
+      "Availability": "UNKNOWN",
+      "Camera": "YES",
+      "HandicapAccessible": "YES",
+      "Location": {
+        "Address": {
+          "City": "Shreveport",
+          "Country": { "Code": "USA", "GeoCoding": true, "Name": "USA" },
+          "CountrySubdivision": { "Code": "NY", "Name": "NY" },
+          "Line1": "559 Emerson Road",
+          "Line2": null,
+          "PostalCode": "11101"
+        },
+        "Distance": 2.8,
+        "DistanceUnit": "MILE",
+        "GeocodingResult": null,
+        "LocationType": { "Type": "OTHER" },
+        "Name": "Sandbox ATM Location 3",
+        "Point": {
+          "Latitude": 38.76006576913497,
+          "Longitude": -90.74615107952418
+        }
+      },
+      "Owner": "Sandbox ATM 3",
+      "SharedDeposit": "NO",
+      "Sponsor": "Sandbox",
+      "SupportEMV": 1,
+      "SurchargeFreeAlliance": "NO",
+      "SurchargeFreeAllianceNetwork": "DOES_NOT_PARTICIPATE_IN_SFA"
+    },
+    {
+      "AccessFees": "UNKNOWN",
+      "Availability": "UNKNOWN",
+      "Camera": "YES",
+      "HandicapAccessible": "YES",
+      "Location": {
+        "Address": {
+          "City": "Seattle",
+          "Country": { "Code": "USA", "GeoCoding": true, "Name": "USA" },
+          "CountrySubdivision": { "Code": "NY", "Name": "NY" },
+          "Line1": "2326 University Street",
+          "Line2": null,
+          "PostalCode": "11101"
+        },
+        "Distance": 3.73,
+        "DistanceUnit": "MILE",
+        "GeocodingResult": null,
+        "LocationType": { "Type": "OTHER" },
+        "Name": "Sandbox ATM Location 4",
+        "Point": {
+          "Latitude": 38.76006576913497,
+          "Longitude": -90.74615107952418
+        }
+      },
+      "Owner": "Sandbox ATM 4",
+      "SharedDeposit": "NO",
+      "Sponsor": "Sandbox",
+      "SupportEMV": 1,
+      "SurchargeFreeAlliance": "NO",
+      "SurchargeFreeAllianceNetwork": "DOES_NOT_PARTICIPATE_IN_SFA"
+    },
+    {
+      "AccessFees": "UNKNOWN",
+      "Availability": "UNKNOWN",
+      "Camera": "YES",
+      "HandicapAccessible": "YES",
+      "Location": {
+        "Address": {
+          "City": "Pico Rivera",
+          "Country": { "Code": "USA", "GeoCoding": true, "Name": "USA" },
+          "CountrySubdivision": { "Code": "NY", "Name": "NY" },
+          "Line1": "2712 Pleasant Hill Road",
+          "Line2": null,
+          "PostalCode": "11101"
+        },
+        "Distance": 4.66,
+        "DistanceUnit": "MILE",
+        "GeocodingResult": null,
+        "LocationType": { "Type": "OTHER" },
+        "Name": "Sandbox ATM Location 5",
+        "Point": {
+          "Latitude": 38.76006576913497,
+          "Longitude": -90.74615107952418
+        }
+      },
+      "Owner": "Sandbox ATM 5",
+      "SharedDeposit": "NO",
+      "Sponsor": "Sandbox",
+      "SupportEMV": 1,
+      "SurchargeFreeAlliance": "NO",
+      "SurchargeFreeAllianceNetwork": "DOES_NOT_PARTICIPATE_IN_SFA"
+    },
+    {
+      "AccessFees": "UNKNOWN",
+      "Availability": "UNKNOWN",
+      "Camera": "YES",
+      "HandicapAccessible": "YES",
+      "Location": {
+        "Address": {
+          "City": "KEMBLESVILLE",
+          "Country": { "Code": "USA", "GeoCoding": true, "Name": "USA" },
+          "CountrySubdivision": { "Code": "NY", "Name": "NY" },
+          "Line1": "2786 Tree Top Lane",
+          "Line2": null,
+          "PostalCode": "11101"
+        },
+        "Distance": 5.59,
+        "DistanceUnit": "MILE",
+        "GeocodingResult": null,
+        "LocationType": { "Type": "OTHER" },
+        "Name": "Sandbox ATM Location 6",
+        "Point": {
+          "Latitude": 38.76006576913497,
+          "Longitude": -90.74615107952418
+        }
+      },
+      "Owner": "Sandbox ATM 6",
+      "SharedDeposit": "NO",
+      "Sponsor": "Sandbox",
+      "SupportEMV": 1,
+      "SurchargeFreeAlliance": "NO",
+      "SurchargeFreeAllianceNetwork": "DOES_NOT_PARTICIPATE_IN_SFA"
+    }
+  ]
+  
