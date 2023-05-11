@@ -4,23 +4,26 @@ import { Request, Response } from 'express';
 
 export class CreatenewUserController {
   public async create(req: Request, res: Response) {
-    const { name, email, password} = req.body;
+    const { name, email, password } = req.body;
 
+    if(!name || !email || !password) {
+      return res.status(400).json({ error: 400, message: 'privide all fields' })
+    }
     const user = new User({
       name,
       email,
-      password
+      password,
     });
-    const newuser = await user.save();    
+    const newuser = await user.save();
     return res.status(201).json({ user: newuser });
   }
 
   public async authenticate(email: string) {
     const user = await User.findOne({ email });
 
-    if (!user) return 'user doesnt exists'
-   
+    if (!user) return 'user doesnt exists';
+
     const token = AuthService.generateToken(user.toJSON());
-    return token
+    return token;
   }
 }

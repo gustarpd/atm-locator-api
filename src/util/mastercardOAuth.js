@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
-import forge from 'node-forge';
+import forge from 'node-forge'
 import fs from 'fs';
-import oauth from 'mastercard-oauth1-signer';
+import oauth from 'mastercard-oauth1-signer'
 import dotenv from 'dotenv';
 dotenv.config()
 export class GetOAuth {

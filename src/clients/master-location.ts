@@ -1,28 +1,14 @@
-import { GetOAuth } from '../util/mastercardOAuth';
+import { GetOAuth } from '../../src/util/mastercardOAuth'
 import * as HTTPUtil from '../../src/util/request';
 import { ATMs } from './IAtmResponse';
 import { InternalError } from '../../src/util/errors/internal-error';
 import { AxiosError } from 'axios';
+import { APIResponseError, ClientRequestError } from '../../src/util/errors/errors';
 
 interface ATMsResponse {
   Atms: {
     Atm: ATMs[];
   };
-}
-
-export class ClientRequestError extends InternalError {
-  constructor(message: string) {
-    const internalMessage =
-      'Unexpected error when trying to communicate to ATM api';
-    super(`${internalMessage}: ${message}`);
-  }
-}
-
-export class MasterCardAPIResponseError extends InternalError {
-  constructor(message: string) {
-    const internalMessage = 'Unexpected error returned by the  service';
-    super(`${internalMessage}: ${message}`);
-  }
 }
 export class MastercardATMs {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -30,10 +16,10 @@ export class MastercardATMs {
   public async fetchATMs(): Promise<any> {
     try {
       const response = await this.request.get<ATMsResponse>(
-        `${process.env.MASTERCARD_SANDBOX}`,
+        `${process.env.MASTERCARD_API_URL}`,
         {
           headers: {
-            Authorization: GetOAuth.oauthHeaderAuthorization(),
+            Authorization: GetOAuth.oauthHeaderAuthorization(process.env.MASTERCARD_API_URL),
           },
         }
       );
@@ -43,7 +29,7 @@ export class MastercardATMs {
         error instanceof InternalError &&
         HTTPUtil.Request.isAxiosError(error)
       ) {
-        throw new MasterCardAPIResponseError(
+        throw new APIResponseError(
           `Error: ${JSON.stringify(
             (error as unknown as AxiosError).response?.data
           )} Code: ${(error as unknown as AxiosError).response?.status}`

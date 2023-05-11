@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
     "target": "es2019",
+    "allowJs": true,
     "moduleResolution": "node",
-    "module": "commonjs",
+    "module": "CommonJS",
     "lib": ["es2019"],
     "sourceMap": true,
     "outDir": "dist",
@@ -31,12 +32,7 @@
   },
   "include": [
     "./src/**/*.ts",
-    "src/test/**/*.ts"
-<<<<<<< HEAD
-, "src/util/mastercardOAuth.js"  ],
-=======
-  ],
->>>>>>> parent of 278c914 (oauth 1.o to request ATMs on mastercard API and tests implemented)
+    "src/test/**/*.ts","../src/util/mastercardOAuth.js"  ],
   "exclude": [
     "./node_modules/*",
     "dist"
