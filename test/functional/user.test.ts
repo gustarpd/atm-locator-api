@@ -23,16 +23,17 @@ describe('user tests', () => {
       });
   });
 
-  // it('should return an erro if send invalid credencials', async () => {
-  //   const user = {
-  //     email: 'email23@email.com',
-  //     password: 1234,
-  //   };
+  it('should return an erro if send invalid credencials', async () => {
+    const user = {
+      email: 'email23@email.com',
+      password: 1234,
+    };
 
-  //   supertest(app)
-  //   .post(user)
-  //   .then((response) => {
-  //      expect(res)
-  //   })
-  // })
+    supertest(app)
+    .post('/create-new-user')
+    .send(user)
+    .then((response) => {
+       expect(response.status).toBe(400)
+    })
+  })
 });

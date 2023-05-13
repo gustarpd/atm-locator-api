@@ -18,12 +18,21 @@ export class CreatenewUserController {
     return res.status(201).json({ user: newuser });
   }
 
-  public async authenticate(email: string) {
+  public async authenticate(
+    req: Request,
+    res: Response
+  ): Promise<Response | undefined> {
+    const { email, password } = req.body;
     const user = await User.findOne({ email });
 
-    if (!user) return 'user doesnt exists';
+    if (!user) {
+      return res.status(401).send({ code: 401, error: 'User not-found' });
+    }
 
+    if (!(await AuthService.comparePassword(password, user.password))) {
+      return res.status(401).send({ code: 401, error: 'passs does not match' });
+    }
     const token = AuthService.generateToken(user.toJSON());
-    return token;
+    return res.status(200).send({ token });
   }
 }
