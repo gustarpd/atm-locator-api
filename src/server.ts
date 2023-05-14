@@ -12,7 +12,6 @@ const server = express();
 
 server.use(cors());
 server.use(express.json())
-server.get('/ping', new ATMLocationController().getTMS);
 server.use(router);
 server.use((req: Request, res: Response) => {
     res.status(404);

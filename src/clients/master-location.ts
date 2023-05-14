@@ -1,4 +1,4 @@
-import { GetOAuth } from '../../src/util/mastercardOAuth'
+import { GetOAuth } from '../util/mastercardOAuth'
 import * as HTTPUtil from '../../src/util/request';
 import { ATMs } from './IAtmResponse';
 import { InternalError } from '../../src/util/errors/internal-error';
@@ -19,7 +19,7 @@ export class MastercardATMs {
         `${process.env.MASTERCARD_API_URL}`,
         {
           headers: {
-            Authorization: GetOAuth.oauthHeaderAuthorization(process.env.MASTERCARD_API_URL),
+            Authorization: GetOAuth.oauthHeaderAuthorization(process.env.MASTERCARD_API_URL as string),
           },
         }
       );

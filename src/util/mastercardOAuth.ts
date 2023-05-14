@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 dotenv.config()
 export class GetOAuth {
   static #consumerKey =
-    process.env.CONSUMER_KEY;
+    process.env.CONSUMER_KEY as string;
   static #keyStorePath =
     '/home/gusta/Downloads/MCD_Sandbox_asd_API_Keys/asd-sandbox.p12';
   static #keyAlias = process.env.AUTH_KEY_ALIAS;
@@ -16,16 +16,22 @@ export class GetOAuth {
     const p12Content = fs.readFileSync(this.#keyStorePath, 'binary');
     const p12Asn1 = forge.asn1.fromDer(p12Content, false);
     const p12 = forge.pkcs12.pkcs12FromAsn1(p12Asn1, false, this.#keyPassword);
-    const keyObj = p12.getBags({
+    const bags = p12.getBags({
       friendlyName: 'keyalias',
       bagType: forge.pki.oids.pkcs8ShroudedKeyBag,
-    }).friendlyName[0];
-    const signingKey = forge.pki.privateKeyToPem(keyObj.key);
-
-    return signingKey;
+    }).friendlyName;
+    
+    const keyObj = bags ? bags[0] : undefined;
+    
+    if (keyObj) {
+      const signingKey = forge.pki.privateKeyToPem(keyObj.key as any);
+      return signingKey;
+    } else {
+      throw new Error("Key object not found.");
+    }
   }
 
-  static oauthHeaderAuthorization(url) {
+  static oauthHeaderAuthorization(url: string) {
     const method = 'GET';
     const payload = '';
     const authHeader = oauth.getAuthorizationHeader(

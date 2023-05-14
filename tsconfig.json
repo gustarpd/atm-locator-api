@@ -3,7 +3,7 @@
     "target": "es2019",
     "allowJs": true,
     "moduleResolution": "node",
-    "module": "CommonJS",
+    "module": "commonjs",
     "lib": ["es2019"],
     "sourceMap": true,
     "outDir": "dist",
@@ -32,7 +32,8 @@
   },
   "include": [
     "./src/**/*.ts",
-    "src/test/**/*.ts","../src/util/mastercardOAuth.js"  ],
+    "src/test/**/*.ts","../src/util/mastercardOAuth.js"
+  ],
   "exclude": [
     "./node_modules/*",
     "dist"

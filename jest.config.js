@@ -1,4 +1,3 @@
-
 const { resolve } = require('path');
 const root = resolve(__dirname);
 module.exports = {
@@ -7,7 +6,7 @@ module.exports = {
   testMatch: ['<rootDir>/src/**/*.test.ts'],
   testEnvironment: 'node',
   clearMocks: true,
-  preset: 'ts-jest',
+  preset: "ts-jest/presets/default-esm",
   moduleNameMapper: {
     '@src/(.*)': '<rootDir>/src/$1',
     '@test/(.*)': '<rootDir>/test/$1',
