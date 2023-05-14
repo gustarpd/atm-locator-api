@@ -2,7 +2,7 @@
 /* eslint-disable no-undef */
 import forge from 'node-forge';
 import fs from 'fs';
-import oauth from 'mastercard-oauth1-signer';
+import OAuth from 'mastercard-oauth1-signer';
 import dotenv from 'dotenv';
 dotenv.config();
 export class GetOAuth {
@@ -34,7 +34,7 @@ export class GetOAuth {
   static oauthHeaderAuthorization(url: string) {
     const method = 'GET';
     const payload = '';
-    const authHeader = oauth.getAuthorizationHeader(
+    const authHeader = OAuth.getAuthorizationHeader(
       url,
       method,
       payload,

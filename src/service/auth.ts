@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt'
 export class AuthService {
   public static generateToken(paylod: object) {
     return JWT.sign(paylod, 'some-key', {
-      expiresIn: 30000,
+      expiresIn: 3000000000,
     });
   }
   
