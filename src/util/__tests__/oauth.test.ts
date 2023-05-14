@@ -17,7 +17,7 @@ describe('OAuth tests', () => {
     expect(typeof authHeader).toBe('string');
   });
 
-  it('should reurns', () => {
+  it('should reurns a TypeError if no url valid is provided', () => {
     try {
       GetOAuth.oauthHeaderAuthorization('some-url-invalid');
     } catch (err) {
