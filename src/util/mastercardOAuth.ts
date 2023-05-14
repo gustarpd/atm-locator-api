@@ -1,12 +1,12 @@
+/* eslint-disable prefer-const */
 /* eslint-disable no-undef */
-import forge from 'node-forge'
+import forge from 'node-forge';
 import fs from 'fs';
-import oauth from 'mastercard-oauth1-signer'
+import oauth from 'mastercard-oauth1-signer';
 import dotenv from 'dotenv';
-dotenv.config()
+dotenv.config();
 export class GetOAuth {
-  static #consumerKey =
-    process.env.CONSUMER_KEY as string;
+  static #consumerKey = process.env.CONSUMER_KEY as string;
   static #keyStorePath =
     '/home/gusta/Downloads/MCD_Sandbox_asd_API_Keys/asd-sandbox.p12';
   static #keyAlias = process.env.AUTH_KEY_ALIAS;
@@ -20,14 +20,14 @@ export class GetOAuth {
       friendlyName: 'keyalias',
       bagType: forge.pki.oids.pkcs8ShroudedKeyBag,
     }).friendlyName;
-    
-    const keyObj = bags ? bags[0] : undefined;
-    
+
+    let keyObj = bags ? bags[0] : undefined;
+
     if (keyObj) {
       const signingKey = forge.pki.privateKeyToPem(keyObj.key as any);
       return signingKey;
     } else {
-      throw new Error("Key object not found.");
+      throw new Error('Key object not found.');
     }
   }
 
