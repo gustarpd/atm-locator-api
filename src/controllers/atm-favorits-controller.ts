@@ -1,13 +1,15 @@
 import { Request, Response } from 'express';
-import { MastercardATMs as MastercardATMs } from '../clients/master-location';
+import { FavoritsATms } from '@src/service/favorits';
 
 export class ATMFavoriteController {
   public async getTMS(req: Request<{ zipcode: string }>, res: Response) {
-    const { zipcode } = req.params;
+    const { name, city, line } = req.body;
 
-    const requetATMs = new MastercardATMs();
-    const ATMResponse = await requetATMs.fetchATMs();
+    const requetATMs = new FavoritsATms();
+    const saveATM = await requetATMs.saveFavorits(name, city, line);
 
-    return res.status(200).json({ ATMResponse });
+    if (saveATM) {
+      res.status(201).json({ saveATM });
+    }
   }
 }

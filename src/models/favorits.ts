@@ -8,8 +8,8 @@ export interface FavoritsATM {
 
 const schema = new mongoose.Schema({
   name: { type: String },
-  lantitude: { type: String },
-  longitude: { type: String },
+  city: { type: String },
+  line: { type: String },
 });
 
 export const Favorits = mongoose.model('favorits', schema);
