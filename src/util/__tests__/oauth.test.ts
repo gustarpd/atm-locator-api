@@ -9,7 +9,7 @@ describe('OAuth tests', () => {
     expect(typeof privateKey).toBe('string');
   });
 
-  it('should reurns a string if the header authorization is return', () => {
+  it('should retuns a string if the header authorization is return', () => {
     const classOauth = GetOAuth.oauthHeaderAuthorization(
       process.env.MASTERCARD_API_URL as string
     );
