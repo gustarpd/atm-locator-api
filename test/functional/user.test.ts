@@ -1,6 +1,6 @@
 import userResponse from '../fixtures/user.json';
 import { User } from '../../src/models/user';
-import {httpServer } from '../../src/server';
+import { httpServer } from '../../src/server';
 import supertest from 'supertest';
 
 describe('user tests', () => {
@@ -20,7 +20,7 @@ describe('user tests', () => {
       .send(user)
       .then((response) => {
         expect(response.status).toBe(201);
-        return done()
+        return done();
       });
   });
 
@@ -31,11 +31,11 @@ describe('user tests', () => {
     };
 
     supertest(httpServer)
-    .post('/create-new-user')
-    .send(user)
-    .then((response) => {
-       expect(response.status).toBe(400)
-       return done()
-    })
-  }, 5000)
+      .post('/create-new-user')
+      .send(user)
+      .then((response) => {
+        expect(response.status).toBe(400);
+        return done();
+      });
+  }, 5000);
 });

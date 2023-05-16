@@ -9,7 +9,7 @@
     "lint": "eslint ./src ./test --ext .ts",
     "start": "npm run build && node ./dist/server.js",
     "lint:fix": "eslint ./src ./test --ext .ts --fix",
-    "test:functional": "jest --projects ./test --forceExit --runInBand --detectOpenHandles",
+    "test:functional": "jest --projects ./test --runInBand --forceExit --no-cache",
     "style:check": "prettier --check src/**/*.ts test/**/*.ts",
     "style:fix": "prettier --write src/**/*.ts test/**/*.ts",
     "test:unit": "jest",

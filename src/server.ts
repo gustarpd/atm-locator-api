@@ -28,7 +28,7 @@ server.use(errorHandler);
 const httpServer = server.listen(3000, () => console.log('Server listening of 3000'))
 
 function closeServer(): void {
-  httpServer.close
+  httpServer.close()
 }
   
 
