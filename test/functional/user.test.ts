@@ -54,5 +54,7 @@ describe('user tests', () => {
       .expect(200);
   }, 10000);
 
-  it()
+  it('should return 400 if no userId is provided', () => {
+    supertest(httpServer).post(`/me/`).expect(400);
+  });
 });

@@ -47,7 +47,9 @@ export class CreatenewUserController {
     const { userId } = req.params;
 
     const userInfos = await Favorits.find({ userId });
-
+    if(!userId) {
+      return Res.status(400).json({ message: 'need to provide the user`s id'  })
+    }
     return Res.status(200).json({ favs: userInfos });
   }
 }
