@@ -1,39 +1,41 @@
 import userResponse from '../fixtures/user.json';
 import { User } from '../../src/models/user';
-import app from '../../src/server';
+import {httpServer } from '../../src/server';
 import supertest from 'supertest';
 
 describe('user tests', () => {
-  beforeAll(async () => {
+  beforeEach(async () => {
     await User.deleteMany({});
   });
 
-  it('should successfuly create a new user with encrypted password', async () => {
+  it('should successfuly create a new user with encrypted password', (done) => {
     const user = {
       name: 'gustavo',
-      email: 'email23@email.com',
+      email: 'validmail1@email.com',
       password: 1234,
     };
 
-    supertest(app)
-      .post('create-new-user')
+    supertest(httpServer)
+      .post('/create-new-user')
       .send(user)
       .then((response) => {
         expect(response.status).toBe(201);
+        return done()
       });
   });
 
-  it('should return an erro if send invalid credencials', async () => {
+  it('should return an erro if send invalid credencials', (done) => {
     const user = {
       email: 'email23@email.com',
       password: 1234,
     };
 
-    supertest(app)
+    supertest(httpServer)
     .post('/create-new-user')
     .send(user)
     .then((response) => {
        expect(response.status).toBe(400)
+       return done()
     })
-  })
+  }, 5000)
 });

@@ -25,6 +25,11 @@ const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
 }
 server.use(errorHandler);
 
-server.listen(4000, () => console.log('Server listening of 4000'))
+const httpServer = server.listen(3000, () => console.log('Server listening of 3000'))
 
-export default server
+function closeServer(): void {
+  httpServer.close
+}
+  
+
+export { httpServer, closeServer }
