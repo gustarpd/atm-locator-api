@@ -7,5 +7,5 @@ const composeFilePath = path.resolve(__dirname, '..');
 const composeFile = 'docker-compose.yml';
 
 afterAll(async () => {
-  closeServer();
-}, 30000);
+  await closeServer();
+});

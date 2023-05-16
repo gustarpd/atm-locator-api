@@ -11,7 +11,6 @@ export class FavoritsATms {
     });
 
     const newfavorits = await saveATM.save();
-
     return newfavorits;
   }
 }

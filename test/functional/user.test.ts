@@ -38,4 +38,21 @@ describe('user tests', () => {
         return done();
       });
   }, 5000);
+
+  it('shoul return a list of user`s atm favorite when request successfull', async () => {
+    const createUserResponse = await supertest(httpServer)
+      .post('/create-new-user')
+      .send({
+        name: 'John Doe',
+        email: 'john@example.com',
+        password: 'some-pass',
+      });
+
+    const userId = createUserResponse.body.user.id;
+    const response = await supertest(httpServer)
+      .post(`/me/${userId}`)
+      .expect(200);
+  }, 10000);
+
+  it()
 });
