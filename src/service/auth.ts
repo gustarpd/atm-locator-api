@@ -1,5 +1,10 @@
 import JWT from 'jsonwebtoken';
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcrypt';
+import { User } from '../models/user';
+
+export interface decodedUser extends Omit<User, '_id'> {
+  id: string;
+}
 export class AuthService {
   public static generateToken(paylod: object) {
     return JWT.sign(paylod, 'some-key', {
@@ -15,7 +20,7 @@ export class AuthService {
     return bcrypt.compare(password, passwordEncrpted)
   }
 
-  public static decodeToken(token: string) {
-    return JWT.verify(token, 'some-key');
+  public static decodeToken(token: string): decodedUser {
+    return JWT.verify(token, 'some-key') as decodedUser;
   }
 }

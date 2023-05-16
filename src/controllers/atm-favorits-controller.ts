@@ -1,15 +1,30 @@
 import { Request, Response } from 'express';
-import { FavoritsATms } from '@src/service/favorits';
+import { FavoritsATms } from '../service/favorits';
+import { AuthService } from '../service/auth';
+import { Private } from '@src/middlewares/auth';
 
 export class ATMFavoriteController {
-  public async getTMS(req: Request<{ zipcode: string }>, res: Response) {
+  public async create(req: Request, res: Response) {
     const { name, city, line } = req.body;
+    if (req.headers.authorization) {
+      const [authtype, token] = req.headers.authorization.split(' ');
+      if (authtype === 'Bearer') {
+        try {
+          const userdecoded = AuthService.decodeToken(token);
+          const requetATMs = new FavoritsATms();
+          const request = await requetATMs.saveFavorits(
+            name,
+            city,
+            line,
+            userdecoded.id
+          );
 
-    const requetATMs = new FavoritsATms();
-    const saveATM = await requetATMs.saveFavorits(name, city, line);
-
-    if (saveATM) {
-      res.status(201).json({ saveATM });
+          return res.status(201).json({ favorits: request });
+        } catch (error) {
+          console.log('error no jwt');
+        }
+      }
     }
+    return res.status(500).json({ error: 'something is wrong' });
   }
 }
