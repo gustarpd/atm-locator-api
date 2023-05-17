@@ -23,8 +23,9 @@ describe('test request methods', () => {
     const response = { data: 'response data' };
     const options = 'request options'
     mockedRequest.post.mockResolvedValue(response as HTTPUtil.Response);
-    const request = mockedRequest.post('some_api_url', options)
+    const request = mockedRequest.post('some_api_url', options, {})
     expect(await request).toEqual(response)
+    expect(mockedRequest.post).toHaveBeenCalledWith('some_api_url', options, {});
     expect(await request).toHaveProperty('data')
   });
 });
