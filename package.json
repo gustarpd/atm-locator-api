@@ -4,7 +4,7 @@
   "description": "",
   "module": "commonjs",
   "scripts": {
-    "test": "npm run test:unit &&  npm run test:functional",
+    "test": "npm run jest",
     "build": "tsc",
     "lint": "eslint ./src ./test --ext .ts",
     "start": "npm run build && node ./dist/server.js",

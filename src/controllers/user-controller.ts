@@ -53,12 +53,3 @@ export class CreatenewUserController {
     return Res.status(200).json({ favs: userInfos });
   }
 }
-
-// {
-// 	"user": {
-// 		"name": "RUA Y",
-// 		"email": "mail234@mail.com",
-// 		"password": "$2b$05$yIk5tBVDpN8ynLYBjPjY3O5YJVmKC61WTAbKT5QZoCBAtdhcx/j0m",
-// 		"id": "6463f2def13feef3f4c76ffb"
-// 	}
-// }

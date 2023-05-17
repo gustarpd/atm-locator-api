@@ -3,7 +3,7 @@ const root = resolve(__dirname);
 module.exports = {
   rootDir: root,
   displayName: 'root-tests',
-  testMatch: ['<rootDir>/src/**/*.test.ts'],
+  testMatch: ['<rootDir>/src/**/*.test.ts', "**/__tests__/**/*.spec.(js|jsx|ts|tsx)"],
   testEnvironment: 'node',
   clearMocks: true,
   preset: "ts-jest/presets/default-esm",

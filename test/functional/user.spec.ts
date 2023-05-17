@@ -49,7 +49,7 @@ describe('user tests', () => {
       });
 
     const userId = createUserResponse.body.user.id;
-    const response = await supertest(httpServer)
+    await supertest(httpServer)
       .post(`/me/${userId}`)
       .expect(200);
   }, 10000);

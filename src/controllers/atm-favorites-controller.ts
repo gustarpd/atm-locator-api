@@ -19,7 +19,7 @@ export class ATMFavoriteController {
           userdecoded.id
         );
 
-        return res.status(201).json({ favorits: result });
+        return res.status(201).json({ result });
       } catch (error) {
         return res.status(400).json('user not found');
       }
