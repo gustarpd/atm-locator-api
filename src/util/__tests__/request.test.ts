@@ -18,4 +18,13 @@ describe('test request methods', () => {
     expect(await request).toEqual(responseFake)
     expect(await request).toHaveProperty('data')
   });
+
+  it('should make POST request with url, options and custom configs', async () => {
+    const response = { data: 'response data' };
+    const options = 'request options'
+    mockedRequest.post.mockResolvedValue(response as HTTPUtil.Response);
+    const request = mockedRequest.post('some_api_url', options)
+    expect(await request).toEqual(response)
+    expect(await request).toHaveProperty('data')
+  });
 });
