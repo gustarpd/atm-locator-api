@@ -5,7 +5,10 @@ import fs from 'fs';
 import OAuth from 'mastercard-oauth1-signer';
 import dotenv from 'dotenv';
 dotenv.config();
+
+
 export class GetOAuth {
+
   static #consumerKey = process.env.CONSUMER_KEY as string;
   static #keyStorePath =
     '/home/gusta/Downloads/MCD_Sandbox_asd_API_Keys/asd-sandbox.p12';

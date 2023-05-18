@@ -22,10 +22,10 @@ describe('test request methods', () => {
   it('should make POST request with url, options and custom configs', async () => {
     const response = { data: 'response data' };
     const options = 'request options'
-    mockedRequest.post.mockResolvedValue(response as HTTPUtil.Response);
     const request = mockedRequest.post('some_api_url', options, {})
-    expect(await request).toEqual(response)
+    mockedRequest.post.mockResolvedValue(response as HTTPUtil.Response);
     expect(mockedRequest.post).toHaveBeenCalledWith('some_api_url', options, {});
+    expect(await request).toEqual(response)
     expect(await request).toHaveProperty('data')
   });
 });

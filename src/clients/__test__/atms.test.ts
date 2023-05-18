@@ -44,4 +44,20 @@ describe('get all ATMs', () => {
       'Unexpected error when trying to communicate api: undefined'
     );
   });
+
+  it('should return Throw APIClentErro', () => {
+    MockedRequestClass.isAxiosError.mockReturnValue(true);
+
+    mockedRequest.get.mockRejectedValue({
+      response: {
+        status: 400,
+        data: { errors: 'Bad request' },
+      },
+    });
+
+    const request = new MastercardATMs(mockedRequest);
+    expect(request.fetchATMs()).rejects.toThrow(
+      'Unexpected error when trying to communicate api'
+    );
+  })
 });

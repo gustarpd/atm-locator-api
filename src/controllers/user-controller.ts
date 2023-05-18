@@ -19,7 +19,7 @@ export class CreatenewUserController {
       password,
     });
     const newuser = await user.save();
-    return res.status(201).json({ user: newuser });
+    return res.status(201).json({ user: newuser, token: AuthService.generateToken(user.toJSON())});
   }
 
   public async authenticate(
