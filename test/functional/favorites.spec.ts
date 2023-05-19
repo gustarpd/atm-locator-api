@@ -20,13 +20,13 @@ describe('Favorits user`s ATM', () => {
       .post('/favorites')
       .send({ name: 'MA', city: 'IMP', line: '21' })
       .set('Authorization', `Bearer ${getUserToken.body.token}`)
-      .expect(201)
+      .expect(201);
   });
   it('should return 400 if user are not found', async () => {
     testRequest
-    .post('/favorites')
-    .send({ name: 'MA', city: 'IMP', line: '21' })
-    .set('Authorization', `Bearer any_token_invalid`)
-    .expect(400)
-  }, 7000)
+      .post('/favorites')
+      .send({ name: 'MA', city: 'IMP', line: '21' })
+      .set('Authorization', `Bearer any_token_invalid`)
+      .expect(400);
+  }, 7000);
 });
