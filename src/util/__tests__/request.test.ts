@@ -7,10 +7,6 @@ describe('test request methods', () => {
   });
 
   const mockedRequest = new HTTPUtil.Request() as jest.Mocked<HTTPUtil.Request>;
-  const MockedRequestClass = HTTPUtil.Request as jest.Mocked<
-    typeof HTTPUtil.Request
-  >;
-
   it('should make GET request and responda data fake', async () => {
     const responseFake = { data: 'some data' }
     mockedRequest.get.mockResolvedValue(responseFake as HTTPUtil.Response);
