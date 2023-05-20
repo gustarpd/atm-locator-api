@@ -1,10 +1,7 @@
-import { InternalError } from '../../src/util/errors/internal-error';
-import * as HTTPUtil from '../../src/util/request';
+import { InternalError } from '../util/errors/internal-error';
+import * as HTTPUtil from '../util/request';
 import { AxiosError, isAxiosError } from 'axios';
-import {
-  APIResponseError,
-  ClientRequestError,
-} from '../../src/util/errors/errors';
+import { APIResponseError, ClientRequestError } from '../util/errors/errors';
 
 export interface locationsInfo {
   latitude: string;

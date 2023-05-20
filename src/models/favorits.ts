@@ -8,9 +8,13 @@ export interface FavoritsATM {
 
 const schema = new mongoose.Schema(
   {
-    name: { type: String },
-    city: { type: String },
-    line: { type: String },
+    userId: String,
+    name: String,
+    city: String,
+    line: String,
+    distance: String,
+    latintude: String,
+    longitude: String,
   },
   {
     toJSON: {

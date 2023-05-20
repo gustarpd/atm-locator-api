@@ -31,16 +31,16 @@ const schema = new mongoose.Schema(
   }
 );
 
-schema.pre('save', async function(): Promise<void> {
+schema.pre('save', async function (): Promise<void> {
   if (!this.password || !this.isModified('password')) {
     return;
   }
   try {
-    const hashPassword = await AuthService.hashPassword(this.password)
+    const hashPassword = await AuthService.hashPassword(this.password);
     this.password = hashPassword;
   } catch (error) {
     console.log(`Error hashing the password for the user ${this.name}`);
   }
-})
+});
 
 export const User = mongoose.model('User', schema);

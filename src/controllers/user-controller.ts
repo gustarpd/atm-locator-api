@@ -19,7 +19,9 @@ export class CreatenewUserController {
       password,
     });
     const newuser = await user.save();
-    return res.status(201).json({ user: newuser, token: AuthService.generateToken(user.toJSON())});
+    return res
+      .status(201)
+      .json({ user: newuser, token: AuthService.generateToken(user.toJSON()) });
   }
 
   public async authenticate(
@@ -33,8 +35,8 @@ export class CreatenewUserController {
       if (!user) {
         return res.status(401).send({ code: 401, error: 'User not-found' });
       }
-    }else {
-      return res.status(400).json({ error: 'email is not valid ' })
+    } else {
+      return res.status(400).json({ error: 'email is not valid ' });
     }
     if (!(await AuthService.comparePassword(password, user.password))) {
       return res.status(401).send({ code: 401, error: 'passs does not match' });
@@ -44,12 +46,12 @@ export class CreatenewUserController {
   }
 
   public async me(req: Request, Res: Response) {
-    const { userId } = req.params;
-
-    const userInfos = await Favorits.find({ userId });
-    if(!userId) {
-      return Res.status(400).json({ message: 'need to provide the user`s id'  })
+    const { userId } = req.body;
+    if (!userId) {
+      return Res.status(400).json({ message: 'need to provide the user`s id' });
     }
+    const userInfos = await Favorits.find({ userId });
+    console.log(userId)
     return Res.status(200).json({ favs: userInfos });
   }
 }

@@ -8,6 +8,6 @@ export const router = Router();
 
 router.get('/atm', Private, new ATMLocationController().getTMS);
 router.post('/create-new-user', new CreatenewUserController().create);
-router.post('/favorites', Private,  new ATMFavoriteController().create)
+router.post('/favorites', Private, new ATMFavoriteController().create);
 router.post('/authenticate', new CreatenewUserController().authenticate);
-router.post('/me/:userId', new CreatenewUserController().me);
+router.post('/me/', Private, new CreatenewUserController().me);

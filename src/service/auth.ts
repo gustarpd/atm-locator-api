@@ -11,13 +11,13 @@ export class AuthService {
       expiresIn: 3000000000,
     });
   }
-  
+
   public static hashPassword(password: string, salt = 5) {
-    return bcrypt.hash(password, salt)
+    return bcrypt.hash(password, salt);
   }
 
   public static comparePassword(password: string, passwordEncrpted: string) {
-    return bcrypt.compare(password, passwordEncrpted)
+    return bcrypt.compare(password, passwordEncrpted);
   }
 
   public static decodeToken(token: string): decodedUser {

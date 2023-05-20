@@ -6,9 +6,7 @@ import OAuth from 'mastercard-oauth1-signer';
 import dotenv from 'dotenv';
 dotenv.config();
 
-
 export class GetOAuth {
-
   static #consumerKey = process.env.CONSUMER_KEY as string;
   static #keyStorePath = process.env.KEY_STORE_PATH as string; // aqui vai o caminho onde está o seu certificado
   static #keyAlias = process.env.AUTH_KEY_ALIAS;

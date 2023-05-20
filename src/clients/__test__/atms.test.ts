@@ -41,7 +41,7 @@ describe('get all ATMs', () => {
 
     const request = new MastercardATMs(mockedRequest);
     await expect(request.fetchATMs()).rejects.toThrow(
-      'Unexpected error when trying to communicate api: undefined'
+      'Unexpected error when trying to communicate api'
     );
   });
 

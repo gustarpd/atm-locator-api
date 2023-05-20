@@ -49,9 +49,7 @@ describe('user tests', () => {
       });
 
     const userId = createUserResponse.body.user.id;
-    await supertest(httpServer)
-      .post(`/me/${userId}`)
-      .expect(200);
+    await supertest(httpServer).post(`/me/${userId}`).expect(200);
   }, 10000);
 
   it('should return 400 if no userId is provided', () => {

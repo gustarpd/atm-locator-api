@@ -1,9 +1,12 @@
-import { GetOAuth } from '../util/mastercardOAuth'
+import { GetOAuth } from '../util/mastercardOAuth';
 import * as HTTPUtil from '../../src/util/request';
 import { ATMs } from './IAtmResponse';
 import { InternalError } from '../../src/util/errors/internal-error';
 import { AxiosError } from 'axios';
-import { APIResponseError, ClientRequestError } from '../../src/util/errors/errors';
+import {
+  APIResponseError,
+  ClientRequestError,
+} from '../../src/util/errors/errors';
 
 interface ATMsResponse {
   Atms: {
@@ -19,7 +22,9 @@ export class MastercardATMs {
         `${process.env.MASTERCARD_API_URL}`,
         {
           headers: {
-            Authorization: GetOAuth.oauthHeaderAuthorization(process.env.MASTERCARD_API_URL as string),
+            Authorization: GetOAuth.oauthHeaderAuthorization(
+              process.env.MASTERCARD_API_URL as string
+            ),
           },
         }
       );
