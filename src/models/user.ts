@@ -43,4 +43,4 @@ schema.pre('save', async function (): Promise<void> {
   }
 });
 
-export const User = mongoose.model('User', schema);
+export const User = mongoose.model<User>('User', schema);

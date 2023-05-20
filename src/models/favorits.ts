@@ -1,9 +1,13 @@
 import mongoose, { Schema } from 'mongoose';
 
 export interface FavoritsATM {
+  userId: string;
   name: string;
-  lantitude: string;
-  logitude: string;
+  city: string;
+  line: string;
+  distance: string;
+  latintude: string;
+  longitude: string;
 }
 
 const schema = new mongoose.Schema(
@@ -27,4 +31,4 @@ const schema = new mongoose.Schema(
   }
 );
 
-export const Favorits = mongoose.model('favorits', schema);
+export const Favorits = mongoose.model<FavoritsATM>('favorits', schema);
