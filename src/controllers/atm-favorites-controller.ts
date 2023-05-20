@@ -30,6 +30,14 @@ export class ATMFavoriteController {
     }
     return res.status(500).json({ error: 'something is wrong' });
   }
+
+  public async delete(req: Request, res: Response) {
+     const { id } = req.params
+
+     const favorite = new FavoritsATms()
+     const makedelete = await favorite.deleteFavorite(id)
+     console.log(makedelete)
+     return res.status(200).json(makedelete)
+  }
 }
 
-//6468e5a7b6a481a1ceae729d

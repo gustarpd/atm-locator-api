@@ -11,3 +11,4 @@ router.post('/create-new-user', new CreatenewUserController().create);
 router.post('/favorites', Private, new ATMFavoriteController().create);
 router.post('/authenticate', new CreatenewUserController().authenticate);
 router.post('/me/', Private, new CreatenewUserController().me);
+router.delete('/delete-favorites/:id', Private, new ATMFavoriteController().delete)

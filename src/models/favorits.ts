@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 
 export interface FavoritsATM {
-  userId: string;
+  id: string;
   name: string;
   city: string;
   line: string;
@@ -12,13 +12,13 @@ export interface FavoritsATM {
 
 const schema = new mongoose.Schema(
   {
-    userId: String,
     name: String,
     city: String,
     line: String,
     distance: String,
     latintude: String,
     longitude: String,
+    id: String
   },
   {
     toJSON: {

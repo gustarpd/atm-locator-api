@@ -22,4 +22,8 @@ export class FavoritsATms {
     const newfavorits = await saveATM.save();
     return newfavorits;
   }
+
+  public async deleteFavorite(id: string) {
+   Favorits.deleteOne({ _id: id }).then(fav => console.log(fav))
+  }
 }
