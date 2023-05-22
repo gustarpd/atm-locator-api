@@ -43,9 +43,6 @@ export class CreatenewUserController {
       return res.status(401).send({ code: 401, error: 'User not found' });
     }
 
-    if (!user) {
-      return res.status(401).send({ code: 401, error: 'User not-found' });
-    }
 
     if (!(await AuthService.comparePassword(password, result.password))) {
       return res
@@ -61,17 +58,16 @@ export class CreatenewUserController {
     const { userId } = req.body;
     try {
       if (!userId) {
-        return Res.status(400).json({
+        return res.status(400).json({
           message: 'need to provide the user`s id',
         });
       }
       const userInfos = await Favorits.find({ userId });
       console.log(userId);
-      return Res.status(200).json({ favs: userInfos });
+      return res.status(200).json({ favs: userInfos });
     } catch (error) {
       console.error('Error getting user favorites:', error);
-      return res
-        .status(500)
+      return res.status(500)
         .json({ error: 500, message: 'Internal server error' });
     }
   }
