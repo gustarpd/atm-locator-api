@@ -3,6 +3,9 @@ import { User } from '../models/user';
 import { AuthService } from '../service/auth';
 import { Request, Response } from 'express';
 import { EmailValidator } from '../../src/util/email-validator';
+// import { UserService } from '@src/service/User';
+import { UserMongoDBRepository } from '../repositories/user-repository';
+import { UserService } from '../service/User';
 
 export class CreatenewUserController {
   public async create(req: Request, res: Response) {
@@ -13,15 +16,12 @@ export class CreatenewUserController {
         .status(400)
         .json({ error: 400, message: 'privide all fields' });
     }
-    const user = new User({
-      name,
-      email,
-      password,
-    });
-    const newuser = await user.save();
+    const user = new UserService()
+    const result = await user.createUser(req.body)
+    console.log(result)
     return res
       .status(201)
-      .json({ user: newuser, token: AuthService.generateToken(user.toJSON()) });
+      .json({ user: result });
   }
 
   public async authenticate(
@@ -30,18 +30,19 @@ export class CreatenewUserController {
   ): Promise<Response | undefined> {
     const { email, password } = req.body;
     const validateEmail = new EmailValidator();
-    const user = await User.findOne({ email });
-    if (validateEmail.isValid(email)) {
+    const user = new UserService()
+    const result = await user.getUserByEmail(email)
+    if (validateEmail.isValid(result.email)) {
       if (!user) {
         return res.status(401).send({ code: 401, error: 'User not-found' });
       }
     } else {
       return res.status(400).json({ error: 'email is not valid ' });
     }
-    if (!(await AuthService.comparePassword(password, user.password))) {
+    if (!(await AuthService.comparePassword(password, result.password))) {
       return res.status(401).send({ code: 401, error: 'passs does not match' });
     }
-    const token = AuthService.generateToken(user.toJSON());
+    const token = AuthService.generateToken(result);
     return res.status(200).send({ token });
   }
 

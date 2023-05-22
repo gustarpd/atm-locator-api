@@ -1,6 +1,7 @@
 import { FilterQuery, Model } from 'mongoose';
-import { FilterOptions } from '.';
-import { Repository } from './Repository';
+import { FilterOptions, WithId } from '.';
+import { Repository } from './repository';
+import { FavoritsATM } from '@src/models/favorits';
 
 export class DefaultRepository<T> extends Repository<T> {
   constructor(protected model: Model<T>) {
@@ -31,4 +32,14 @@ export class DefaultRepository<T> extends Repository<T> {
       throw new Error(`error: ${error}`);
     }
   }
+
+  async find(filter: FilterOptions) {
+    try {
+      const data = await this.model.find(filter);
+      return data.map((d) => d.toJSON<WithId<T>>());
+    } catch (error) {
+      throw new Error(`error: ${error}`);
+    }
+  }
+  
 }

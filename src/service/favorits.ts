@@ -1,3 +1,4 @@
+import { FavoritesMongoDBRepository } from '../repositories/favorites-repository';
 import { Favorits } from '../models/favorits';
 export class FavoritsATms {
   public async saveFavorits(
@@ -9,17 +10,9 @@ export class FavoritsATms {
     longitude: string,
     userId: string
   ) {
-    const saveATM = new Favorits({
-      name,
-      city,
-      line,
-      distance,
-      latintude,
-      longitude,
-      userId,
-    });
+    const saveATM = new FavoritesMongoDBRepository()
 
-    const newfavorits = await saveATM.save();
+    const newfavorits = await saveATM.create({ name, city, line, distance, latintude, longitude, id: userId })
     return newfavorits;
   }
 
