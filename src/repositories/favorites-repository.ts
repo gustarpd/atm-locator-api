@@ -1,9 +1,7 @@
 import { Favorits, FavoritsATM } from '../models/favorits';
-import { FavoritesRepository, WithId } from '.';
-import { User } from '../models/user';
+import { FavoritesRepository } from '.';
 import { DefaultRepository } from './default-repository';
-import { FavoritsATms } from '@src/service/favorits';
-import { FlattenMaps } from 'mongoose';
+
 
 export class FavoritesMongoDBRepository
   extends DefaultRepository<FavoritsATM>
@@ -23,6 +21,6 @@ export class FavoritesMongoDBRepository
   }
 
   async findManyById(id: string) {
-    return await this.find({ _id: id })
+    return await this.find({ id })
   }
 }

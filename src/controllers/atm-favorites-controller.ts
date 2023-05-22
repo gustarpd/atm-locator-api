@@ -11,7 +11,7 @@ export class ATMFavoriteController {
 
       try {
         const userdecoded = AuthService.decodeToken(token);
-        console.log(userdecoded)
+        console.log(userdecoded);
         const requetATMs = new FavoritsATms();
         const result = await requetATMs.saveFavorits(
           name,
@@ -32,12 +32,25 @@ export class ATMFavoriteController {
   }
 
   public async delete(req: Request, res: Response) {
-     const { id } = req.params
+    const { id } = req.params;
 
-     const favorite = new FavoritsATms()
-     const makedelete = await favorite.deleteFavorite(id)
-     console.log(makedelete)
-     return res.status(200).json(makedelete)
+    const favorite = new FavoritsATms();
+    const makedelete = await favorite.deleteFavorite(id);
+
+    return res.status(200).json(makedelete);
+  }
+
+  public async getAllAMTFavorites(req: Request, res: Response) {
+    const favorites = new FavoritsATms();
+
+    if (req.headers.authorization) {
+      const [_, token] = req.headers.authorization.split(' ');
+      const userdecoded = AuthService.decodeToken(token);
+      const getAllAtm = await favorites.getAllFavorites(userdecoded.id);
+
+      return res.status(200).json(getAllAtm);
+    }
+
+    return res.status(500).json({ error: 'something went wrong' });
   }
 }
-

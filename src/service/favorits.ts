@@ -11,7 +11,6 @@ export class FavoritsATms {
     longitude: string,
     userId: string
   ) {
-
     const newfavorits = await this.favoritesRepository.create({
       name,
       city,
@@ -25,6 +24,11 @@ export class FavoritsATms {
   }
 
   public async deleteFavorite(id: string) {
-    await this.favoritesRepository.deleteById(id)
+    await this.favoritesRepository.deleteById(id);
+  }
+
+  public async getAllFavorites(id: string) {
+    const data = await this.favoritesRepository.findManyById(id);
+    return data;
   }
 }
