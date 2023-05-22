@@ -1,6 +1,7 @@
 import { FavoritesMongoDBRepository } from '../repositories/favorites-repository';
 import { Favorits } from '../models/favorits';
 export class FavoritsATms {
+  constructor(private favoritesRepository = new FavoritesMongoDBRepository()) {}
   public async saveFavorits(
     name: string,
     city: string,
@@ -10,13 +11,20 @@ export class FavoritsATms {
     longitude: string,
     userId: string
   ) {
-    const saveATM = new FavoritesMongoDBRepository()
 
-    const newfavorits = await saveATM.create({ name, city, line, distance, latintude, longitude, id: userId })
+    const newfavorits = await this.favoritesRepository.create({
+      name,
+      city,
+      line,
+      distance,
+      latintude,
+      longitude,
+      id: userId,
+    });
     return newfavorits;
   }
 
   public async deleteFavorite(id: string) {
-   Favorits.deleteOne({ _id: id }).then(fav => console.log(fav))
+    await this.favoritesRepository.deleteById(id)
   }
 }
