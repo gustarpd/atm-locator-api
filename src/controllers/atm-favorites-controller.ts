@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
 import { FavoritsATms } from '../service/favorits';
 import { AuthService } from '../service/auth';
-import { Private } from '@src/middlewares/auth';
 
 export class ATMFavoriteController {
   public async create(req: Request, res: Response) {

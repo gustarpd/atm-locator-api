@@ -9,7 +9,7 @@ describe('atms functional tests', () => {
       .get('/atm')
       .set(
         'Authorization',
-        `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR3VzdGF2byIsImVtYWlsIjoibWFpbDIzMkBtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDA1JEV2Sk1qc05UcjRsdkFqM0Znby5NdXVoMGZJRE0xangydUs2UzNYblZuNHNrWDhlTEVnN3FtIiwiaWQiOiI2NDYxNmMxNmY1MGVlOTBjMTA3MjM3YTQiLCJpYXQiOjE2ODQxMDYyODEsImV4cCI6NDY4NDEwNjI4MX0.PD_IlN1N0NuSCZtWgywHVleFps9cDRpI0vuShBKBUVA`
+        `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXNlMnIgbmFtZSIsImVtYWlsIjoiZXN3QG1haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMDUkZDZWSHVucDBET0c5M1EyRUw4U1VDT0U3ay9FYUNBYnlGcFNQRktWaGI2c0NLZXdPZUpndmUiLCJpZCI6IjY0NmJjOWZlMWUzOWVhZGY3MjFmMDA4YSIsImlhdCI6MTY4NDc4NTY3MywiZXhwIjo0Njg0Nzg1NjczfQ.GrZOd11_1Udt6D3rkPhEos9lu5wSNbmggCFg_wtoN1w`
       )
       .then((response) => {
         expect(response.body).toEqual(responseATM);

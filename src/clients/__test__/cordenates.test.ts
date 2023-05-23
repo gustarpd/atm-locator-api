@@ -1,5 +1,5 @@
-import * as HTTPUtil from '../../../src/util/request';
-import { Coordenates } from '../../clients/cordenates';
+import * as HTTPUtil from '../../util/request';
+import { Coordenates } from '../cordenates';
 import mockresolved from './mock/location.json';
 
 jest.mock('@src/util/request');

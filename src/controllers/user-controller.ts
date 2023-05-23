@@ -16,7 +16,7 @@ export class CreatenewUserController {
       const user = new UserService();
       const result = await user.createUser(req.body);
 
-      return res.status(201).json({ user: result });
+      return res.status(201).json({ user: result, token: AuthService.generateToken(req.body) });
     } catch (err) {
       console.error('Error creating user:', err);
       return res.status(500).json({ error: 'internal server error' });
