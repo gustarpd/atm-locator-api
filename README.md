@@ -29,6 +29,7 @@ Create a new user
 ```
 POST /create-new-user
 ```
+Body request
 ```json 
 {
   "name": "use2r name",
@@ -38,10 +39,46 @@ POST /create-new-user
 
 ```
 
+Response 
+
+```json 
+{
+   "user":{
+      "name":"use2r name",
+      "email":"esw@mail.com",
+      "password":"USER PASSWORD HASHAD",
+      "id":"646d12b6184ced31a95fe40b"
+   },
+   "token":"YOUR TOKEN HERE"
+}
+
+```
+
+Save user's favorites ATMs
+```
+POST /favorites
+```
+Body request
+
+```json
+{
+  "name": "user name",
+  "city": "some city",
+  "line": "any line",
+  "distance": 0.93,
+  "lantitude": 38.76006576913497,
+  "longitude": -90.74615107952418
+}
+
+```
+
 Get ATMs 
 
 ```
 GET /atm
+
+**Headers:**
+- Authorization: Bearer [token]
 ```
 
 ```json 
