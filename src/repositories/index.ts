@@ -1,4 +1,4 @@
-import { Favorits, FavoritsATM } from '../models/favorits'
+import { FavoritsATM } from '../models/favorits'
 import { User } from "../models/user"
 import { FilterQuery, FlattenMaps } from "mongoose"
 

@@ -31,4 +31,8 @@ export class FavoritsATms {
     const data = await this.favoritesRepository.findManyById(id);
     return data;
   }
+
+  public async deleteATMById(id: string) {
+    await this.favoritesRepository.deleteById(id);
+  }
 }

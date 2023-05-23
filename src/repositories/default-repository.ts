@@ -1,7 +1,6 @@
 import { FilterQuery, Model } from 'mongoose';
 import { FilterOptions, WithId } from '.';
 import { Repository } from './repository';
-import { FavoritsATM } from '@src/models/favorits';
 
 export class DefaultRepository<T> extends Repository<T> {
   constructor(protected model: Model<T>) {

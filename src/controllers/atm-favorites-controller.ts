@@ -12,8 +12,8 @@ export class ATMFavoriteController {
       try {
         const userdecoded = AuthService.decodeToken(token);
         console.log(userdecoded);
-        const requetATMs = new FavoritsATms();
-        const result = await requetATMs.saveFavorits(
+        const favorite = new FavoritsATms();
+        const result = await favorite.saveFavorits(
           name,
           city,
           line,
@@ -33,11 +33,13 @@ export class ATMFavoriteController {
 
   public async delete(req: Request, res: Response) {
     const { id } = req.params;
-
-    const favorite = new FavoritsATms();
-    const makedelete = await favorite.deleteFavorite(id);
-
-    return res.status(200).json(makedelete);
+    try {
+      const favorite = new FavoritsATms();
+      const makedelete = await favorite.deleteATMById(id);
+      return res.status(200).json(makedelete);
+    } catch (error) {
+      return res.status(500).json({ error: 'Internal server error' });
+    }
   }
 
   public async getAllAMTFavorites(req: Request, res: Response) {
