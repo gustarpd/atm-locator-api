@@ -54,24 +54,6 @@ Response
 
 ```
 
-Save user's favorites ATMs
-```
-POST /favorites
-```
-Body request
-
-```json
-{
-  "name": "user name",
-  "city": "some city",
-  "line": "any line",
-  "distance": 0.93,
-  "lantitude": 38.76006576913497,
-  "longitude": -90.74615107952418
-}
-
-```
-
 Get ATMs 
 
 ```
