@@ -54,6 +54,7 @@ Response
 
 ```
 
+
 Get ATMs 
 
 ```

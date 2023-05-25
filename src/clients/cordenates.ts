@@ -14,7 +14,7 @@ export class Coordenates {
     protected request = new HTTPUtil.Request()
   ) {}
 
-  public async getCoordenateWithZipCode(): Promise<any> {
+  public async getCoordenateWithZipCode(): Promise<locationsInfo> {
     const url = `https://www.cepaberto.com/api/v3/cep?cep=${this.zipcode}`;
 
     try {

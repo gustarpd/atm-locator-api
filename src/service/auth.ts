@@ -3,11 +3,13 @@ import bcrypt from 'bcrypt';
 import { User } from '../models/user';
 
 export interface decodedUser extends Omit<User, '_id'> {
-  id: string;
+  payload: {
+    id: string;
+  };
 }
 export class AuthService {
-  public static generateToken(paylod: object) {
-    return JWT.sign(paylod, 'some-key', {
+  public static generateToken(payload: object) {
+    return JWT.sign({ payload }, 'some-key', {
       expiresIn: 3000000000,
     });
   }

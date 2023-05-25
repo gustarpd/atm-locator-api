@@ -20,15 +20,15 @@ export class FavoritsATms {
       longitude,
       id: userId,
     });
-    return newfavorits;
+    return userId;
   }
 
   public async deleteFavorite(id: string) {
     await this.favoritesRepository.deleteById(id);
   }
 
-  public async getAllFavorites(id: string) {
-    const data = await this.favoritesRepository.findManyById(id);
+  public getAllFavorites(id: string) {
+    const data = this.favoritesRepository.findManyById(id);
     return data;
   }
 

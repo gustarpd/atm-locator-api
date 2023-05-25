@@ -1,5 +1,5 @@
 import * as HTTPUtil from '../../util/request';
-import MockResolvedValue from './atms.json';
+import MockResolvedValue from './mock/atms.json';
 import { MastercardATMs } from '../master-location';
 
 jest.mock('@src/util/request');

@@ -8,7 +8,7 @@ export interface BaseRepository<T> {
   create(data: T): Promise<T>
   findOne(options: FilterOptions): Promise<T> | undefined
   deleteOne(filter: FilterQuery<T>): Promise<void>
-  find(options: FilterOptions): Promise<FlattenMaps<WithId<T>>[] | undefined>;
+  find(options: FilterOptions): Promise<FlattenMaps<WithId<T>>[] | null>;
 }
 
 export interface UserRepository extends BaseRepository<User> {

@@ -25,7 +25,7 @@ const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
 }
 server.use(errorHandler);
 
-const httpServer = server.listen(3001)
+const httpServer = server.listen(4001)
 
 function closeServer(): void {
   httpServer.close()
