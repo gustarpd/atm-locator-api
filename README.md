@@ -1,6 +1,8 @@
 # ATM locator api
-An API to search for ATMs near the user based on their zip code. under development 🚀
-
+An API to search for ATMs near the user based on their zip code.
+ 
+under development 🚀
+ 
 ## Important Note
 This API provides information on ATMs located near the user's location using their zip code. Currently, it is undergoing a review process to be integrated with Mastercard's production host. However, it can still make requests successfully using the sandbox environment. Before testing this API, you will need to request credentials from the Mastercard website to obtain authentication credentials. These credentials will allow you to make authenticated requests and retrieve real data.
 
